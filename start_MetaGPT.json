@@ -1,0 +1,23 @@
+{
+  "run": [
+    {
+      "method": "shell.enter",
+      "params": {
+        "message": "{{os.platform() === 'win32' ? 'MetaGPT_env\\\\Scripts\\\\activate' : 'source MetaGPT_env/bin/activate'}}",
+        "path": "MetaGPT"
+      }
+    },
+    {
+      "method": "shell.start",
+      "params": {
+        "path": "MetaGPT"
+      }
+    },
+    {
+      "method": "notify",
+      "params": {
+        "html": "<b>Success</b> MetaGPT has been successfully started. You can now use it to create programs with a single prompt!"
+      }
+    }
+  ]
+}
