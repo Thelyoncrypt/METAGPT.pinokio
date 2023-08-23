@@ -1,0 +1,44 @@
+{
+  "run": [
+    {
+      "method": "shell.run",
+      "params": {
+        "message": "git clone https://github.com/geekan/MetaGPT.git MetaGPT"
+      }
+    },
+    {
+      "method": "shell.run",
+      "params": {
+        "message": "{{os.platform() === 'win32' ? 'python' : 'python3'}} -m venv MetaGPT_env",
+        "path": "MetaGPT"
+      }
+    },
+    {
+      "method": "shell.enter",
+      "params": {
+        "message": "{{os.platform() === 'win32' ? 'MetaGPT_env\\\\Scripts\\\\activate' : 'source MetaGPT_env/bin/activate'}}",
+        "path": "MetaGPT"
+      }
+    },
+    {
+      "method": "shell.enter",
+      "params": {
+        "message": "pip install torch torchvision torchaudio",
+        "path": "MetaGPT"
+      }
+    },
+    {
+      "method": "shell.enter",
+      "params": {
+        "message": "pip install -r requirements.txt",
+        "path": "MetaGPT"
+      }
+    },
+    {
+      "method": "notify",
+      "params": {
+        "html": "<b>Success</b> Successfully installed MetaGPT. You can now use it to create programs with a single prompt!"
+      }
+    }
+  ]
+}
